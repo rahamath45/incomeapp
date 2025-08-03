@@ -12,7 +12,6 @@ const totalexpense = document.getElementById("total-expense");
 form.addEventListener("submit",(e)=>{
     e.preventDefault();
     const description = document.getElementById("description").value;
-    console.log(description);
     const amount = parseFloat(document.getElementById("amount").value);
     const type = document.getElementById("type").value;
 
@@ -38,7 +37,7 @@ form.addEventListener("submit",(e)=>{
  function renderEntries(){
     const selectedFilter = document.querySelector("input[name='filter']:checked").value;
     list.innerHTML ="";
-    let income=0;
+    let income = 0;
     let expense = 0;
 
     entries.filter(entry => selectedFilter ==="all" || entry.type === selectedFilter).forEach(entry =>{
@@ -51,11 +50,13 @@ form.addEventListener("submit",(e)=>{
         list.appendChild(li);
     });
     entries.forEach(e =>{
-        if(e.type === "income") income += e.amount;
-        else expense += e.amount;
+        if(e.type === "income")
+             { income += e.amount }
+        else{ expense += e.amount
+        }
     });
 
-    totalincome.textcontent = income;
+    totalincome.textContent = income;
     totalexpense.textContent = expense;
     netbalance.textContent = income - expense;
 }
