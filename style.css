@@ -103,4 +103,5 @@ button{
    }
     #entry-list button:hover{
       color: red;
+      padding: 1px;
     } 
